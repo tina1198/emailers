@@ -2,13 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const serverless = require("serverless-http");
-const router = express.Router();
 
 const app = express();
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/', (req,res)=>{
+  res.send("App is running")
+})
 
 // Connect to MongoDB Atlas
 mongoose
@@ -19,12 +22,8 @@ mongoose
   .then(() => console.log("MongoDB Atlas connected"))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => {
-  res.send("App is running");
-});
-
 // Feedback Schema
-/*const FeedbackSchema = new mongoose.Schema({
+const FeedbackSchema = new mongoose.Schema({
   npsResponse: Number,
   textResponse: String,
 });
@@ -48,7 +47,7 @@ app.post("/provideApiResource", (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: "Failed to save feedback" });
     });
-});*/
+});
 
-app.use("/.netlify/functions/app", router);
+// You must export your app for serverless functions
 module.exports.handler = serverless(app);
