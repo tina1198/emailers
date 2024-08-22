@@ -14,13 +14,6 @@
   "scripts": {
     "build": "netlify deploy --prod"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tina1198/emailers.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tina1198/emailers/issues"
-  }
+  "license": "ISC"
 }

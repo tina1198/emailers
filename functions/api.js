@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req,res)=>{
+app.get('/api', (req,res)=>{
   res.send("App is running")
 })
 
@@ -31,7 +31,7 @@ const FeedbackSchema = new mongoose.Schema({
 const Feedback = mongoose.model("Feedback", FeedbackSchema);
 
 // POST route to store feedback
-app.post("/provideApiResource", (req, res) => {
+app.post("/api/provideApiResource", (req, res) => {
   const { npsResponse, textResponse } = req.body;
 
   const newFeedback = new Feedback({
