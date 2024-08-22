@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // Feedback Schema
-const FeedbackSchema = new mongoose.Schema({
+/*const FeedbackSchema = new mongoose.Schema({
   npsResponse: Number,
   textResponse: String,
 });
@@ -48,7 +48,7 @@ app.post("/provideApiResource", (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: "Failed to save feedback" });
     });
-});
+});*/
 
 app.use("/.netlify/functions/app", router);
 module.exports.handler = serverless(app);
