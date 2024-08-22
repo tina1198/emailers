@@ -2,16 +2,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const serverless = require("serverless-http");
+const cors = require("cors");
 
 const app = express();
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
-app.get('/api', (req,res)=>{
-  res.send("App is running")
-})
+app.get("/api", (req, res) => {
+  res.send("App is running");
+});
 
 // Connect to MongoDB Atlas
 mongoose
@@ -42,10 +44,10 @@ app.post("/api/provideApiResource", (req, res) => {
   newFeedback
     .save()
     .then(() => {
-      res.status(200).json({ message: "Response submitted successfully" });
+      res.status(200).json({ status: 'success'});
     })
     .catch((err) => {
-      res.status(500).json({ error: "Failed to save feedback" });
+      res.status(500).json({status: 'error' });
     });
 });
 
