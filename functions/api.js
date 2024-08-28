@@ -6,11 +6,22 @@ const cors = require("cors");
 
 const app = express();
 
-// Middleware
+// CORS options to allow specific origins and handle preflight requests
+const corsOptions = {
+  origin: 'https://amp.gmail.dev', // Specify the allowed origin (AMP playground in your case)
+  methods: ['GET', 'POST', 'OPTIONS'], // Specify allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+  credentials: true // If dealing with credentials
+};
+
+// Apply CORS middleware with the options
+app.use(cors(corsOptions));
+
+// Middleware for parsing JSON and URL-encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
 
+// Test route to ensure app is running
 app.get("/api", (req, res) => {
   res.send("App is running");
 });
@@ -34,6 +45,8 @@ const Feedback = mongoose.model("Feedback", FeedbackSchema);
 
 // POST route to store feedback
 app.post("/api/provideApiResource", (req, res) => {
+  res.set('Access-Control-Allow-Origin', 'https://amp.gmail.dev'); // Ensure CORS headers are set
+
   const { npsResponse, textResponse } = req.body;
 
   const newFeedback = new Feedback({
@@ -44,12 +57,15 @@ app.post("/api/provideApiResource", (req, res) => {
   newFeedback
     .save()
     .then(() => {
-      res.status(200).json({ status: 'success'});
+      res.status(200).json({ npsResponse, textResponse });
     })
     .catch((err) => {
-      res.status(500).json({status: 'error' });
+      res.status(500).json({ status: 'error' });
     });
 });
 
-// You must export your app for serverless functions
+// Handle preflight requests
+app.options("/api/provideApiResource", cors(corsOptions));
+
+// Export the app for serverless functions
 module.exports.handler = serverless(app);

@@ -1,0 +1,69 @@
+<!doctype html>
+<html ⚡4email data-css-strict>
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <style amp4email-boilerplate>body{visibility:hidden}</style>
+    <style amp-custom>
+      .step { display: none; }
+      .step.active { display: block; }
+      .step-buttons { margin-top: 20px; }
+      button { padding: 10px 20px; margin: 5px; }
+    </style>
+  </head>
+  <body>
+
+    <!-- AMP State for Stepper -->
+    <amp-state id="stepper">
+      <script type="application/json">
+        { "step": 1 }
+      </script>
+    </amp-state>
+
+    <!-- Stepper Form -->
+    <form method="post" action-xhr="https://your-server.com/submit">
+      
+      <!-- Step 1 -->
+      <div class="step active" [class]="stepper.step == 1 ? 'step active' : 'step'">
+        <h2>Step 1</h2>
+        <label>
+          Name:
+          <input type="text" name="name" required>
+        </label>
+        <div class="step-buttons">
+          <button type="button" on="tap:AMP.setState({stepper: {step: 2}})">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step" [class]="stepper.step == 2 ? 'step active' : 'step'">
+        <h2>Step 2</h2>
+        <label>
+          Email:
+          <input type="email" name="email" required>
+        </label>
+        <div class="step-buttons">
+          <button type="button" on="tap:AMP.setState({stepper: {step: 1}})">Back</button>
+          <button type="button" on="tap:AMP.setState({stepper: {step: 3}})">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step" [class]="stepper.step == 3 ? 'step active' : 'step'">
+        <h2>Step 3</h2>
+        <label>
+          Comments:
+          <textarea name="comments"></textarea>
+        </label>
+        <div class="step-buttons">
+          <button type="button" on="tap:AMP.setState({stepper: {step: 2}})">Back</button>
+          <button type="submit">Submit</button>
+        </div>
+      </div>
+
+    </form>
+
+  </body>
+</html>
