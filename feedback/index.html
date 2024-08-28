@@ -2,209 +2,410 @@
      Below is the mininum valid AMP4EMAIL document. Just type away
      here and the AMP Validator will re-check your document on the fly.
 -->
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
-<head>
-  <meta charset="utf-8">
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-  <style amp4email-boilerplate>body{visibility:hidden}</style>
-  <style amp-custom>
-    body{
-      font-family:Helvetica
-    }
-    
-    .step { 
-      display: none;
-    }
-    
-    .step.active { 
-      display: block; 
-    }
-    
-    .emoji-wrapper label input:checked ~ span {
-      font-size:40px;
-    }
-    .font{
-      font-size:30px;
-      cursor: pointer;
-    }
-    
-    .chip-checkmark{
-      padding: 8px 21px;
-    	border-radius: 24px;
-    	line-height: normal;
-    }
-    
-    .chip-select-container input:checked ~ .chip-checkmark {
-    	background-color: rgb(116, 67, 247);
-    	color: rgb(255, 255, 255);
-    }
-    
-    .option{
-      border: 1px solid rgb(211, 211, 211);
-      border-radius: 6.4px;
-      width: 5%;
-      height:35px;
-      text-align:center;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-    
-    .nps-wrapper label input:checked ~ span {
-    	border: 2px solid rgb(116, 67, 247);
-    	background-color: rgb(116, 67, 247);
-    	color: rgb(255, 255, 255);
-    	cursor: pointer;
-    	width:100%;
-    	height:100%;
-    	border-radius:6.4px;
-      	display:flex;
-      	justify-content:center;
-      	align-items:center;
-    }
-    
-    .input-style{
-      	color: rgb(98, 98, 101);
-     	background-color: rgb(245, 245, 253);
-    	font-family: Helvetica;
-    	font-size: 16px;
-    	width: 80%;
-    	border-width: 1px;
-    	border-style: solid;
-    	border-color: rgb(194, 207, 224);
-    	border-radius: 6px;
-    	padding: 10px;
-      	line-height: 1.5;
-    }
-  </style>
-</head>
-<body>
-  <div style="background-color:black;height: 100%; padding:20px">
-    <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/c8a98dc2-91cd-42e9-a0c6-6f8408199901.png" width="200" height="50" layout="responsive"></amp-img>
-    <div style="color:white;font-size:32px; font-family:bold;text-align:center;margin-bottom:25px;margin-top:30px;font-family:Helvetica">Share Your Experience With Us</div>
-    <div style="color:white; text-align:center;margin-bottom:25px">Hope you've been enjoying shopping from Zieme. Your satisfaction means the world to us, and we'd love to hear your thoughts.</div>
-    <amp-state id="stepper">
-      <script type="application/json">
-        { "step": 1 }
-      </script>
-    </amp-state>
-    <form style="max-height:200px,border:1px solid white;background-color:white; padding:20px;border-radius:8px">
-      <!--Stepper 1!-->
-      <div class="step active" [class]="stepper.step == 1 ? 'step active' : 'step'">
-      <!--Emoji Feedback -->
-      <div style="margin-bottom:30px;">
-        <div>Overall, how satisfied are you with the quality of product ?</div>
-        <div style="margin-top:20px; display:flex;justify-content:center;align-items:center;gap:30px" class="emoji-wrapper">
-        <label>
-        	<input type="radio" value="not satisfied" style="position: absolute; opacity: 0;" name="emoji-feedback"/>
-          	<span class="font">😞</span>
-        </label>
-          <label>
-        	<input type="radio" value="bad" style="position: absolute; opacity: 0;" name="emoji-feedback"/>
-          	<span class="font">🙁</span>
-        </label>
-          <label>
-        	<input type="radio" value="average" style="position: absolute; opacity: 0;" name="emoji-feedback"/>
-          	<span class="font">😐</span>
-        </label>
-          <label>
-        	<input type="radio" value="good" style="position: absolute; opacity: 0;" name="emoji-feedback"/>
-          	<span class="font">🙂</span>
-        </label>
-          <label>
-        	<input type="radio" value="satisfied" style="position: absolute; opacity: 0;" name="emoji-feedback"/>
-          	<span class="font">😍</span>
-        </label>
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script
+      async
+      custom-element="amp-form"
+      src="https://cdn.ampproject.org/v0/amp-form-0.1.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-bind"
+      src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+    ></script>
+    <style amp4email-boilerplate>
+      body {
+        visibility: hidden;
+      }
+    </style>
+    <style amp-custom>
+      body {
+        font-family: Helvetica;
+      }
+
+      .step {
+        display: none;
+      }
+
+      .step.active {
+        display: block;
+      }
+
+      .emoji-wrapper label input:checked ~ span {
+        font-size: 40px;
+      }
+      .font {
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .chip-checkmark {
+        padding: 8px 21px;
+        border-radius: 24px;
+        line-height: normal;
+      }
+
+      .chip-select-container input:checked ~ .chip-checkmark {
+        background-color: rgb(116, 67, 247);
+        color: rgb(255, 255, 255);
+      }
+
+      .option {
+        border: 1px solid rgb(211, 211, 211);
+        border-radius: 6.4px;
+        width: 30px;
+        height: 35px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .nps-wrapper label input:checked ~ span {
+        border: 2px solid rgb(116, 67, 247);
+        background-color: rgb(116, 67, 247);
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        border-radius: 6.4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .input-style {
+        color: rgb(98, 98, 101);
+        background-color: rgb(245, 245, 253);
+        font-family: Helvetica;
+        font-size: 16px;
+        width: 80%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(194, 207, 224);
+        border-radius: 6px;
+        padding: 10px;
+        line-height: 1.5;
+      }
+
+      .button {
+        text-align: center;
+        color: white;
+        background-color: black;
+        border-radius: 8px;
+        width: 20%;
+        padding: 15px 10px;
+        cursor: pointer;
+      }
+
+      @media only screen and (max-width: 400px) {
+        .button {
+          width: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background-color: black; height: 100%; padding: 20px">
+      <amp-img
+        src="https://non-prod-cdp-assets.rebid.co/1/email templates test/c8a98dc2-91cd-42e9-a0c6-6f8408199901.png"
+        width="200"
+        height="50"
+        layout="responsive"
+      ></amp-img>
+      <div
+        style="
+          color: white;
+          font-size: 32px;
+          font-family: bold;
+          text-align: center;
+          margin-bottom: 25px;
+          margin-top: 30px;
+          font-family: Helvetica;
+        "
+      >
+        Share Your Experience With Us
+      </div>
+      <div style="color: white; text-align: center; margin-bottom: 25px">
+        Hope you've been enjoying shopping from Zieme. Your satisfaction means
+        the world to us, and we'd love to hear your thoughts.
+      </div>
+      <amp-state id="stepper">
+        <script type="application/json">
+          { "step": 1 }
+        </script>
+      </amp-state>
+      <form
+        style="
+          border: 1px solid white;
+          background-color: white;
+          padding: 20px;
+          border-radius: 8px;
+        "
+      >
+        <!--Stepper 1!-->
+        <div
+          class="step active"
+          [class]="stepper.step == 1 ? 'step active' : 'step'"
+        >
+          <!--Emoji Feedback -->
+          <div style="margin-bottom: 30px">
+            <div>
+              Overall, how satisfied are you with the quality of product ?
+            </div>
+            <div
+              style="
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                flex-wrap: wrap;
+              "
+              class="emoji-wrapper"
+            >
+              <label>
+                <input
+                  type="radio"
+                  value="not satisfied"
+                  style="position: absolute; opacity: 0"
+                  name="emoji-feedback"
+                />
+                <span class="font">😞</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="bad"
+                  style="position: absolute; opacity: 0"
+                  name="emoji-feedback"
+                />
+                <span class="font">🙁</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="average"
+                  style="position: absolute; opacity: 0"
+                  name="emoji-feedback"
+                />
+                <span class="font">😐</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="good"
+                  style="position: absolute; opacity: 0"
+                  name="emoji-feedback"
+                />
+                <span class="font">🙂</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="satisfied"
+                  style="position: absolute; opacity: 0"
+                  name="emoji-feedback"
+                />
+                <span class="font">😍</span>
+              </label>
+            </div>
+          </div>
+
+          <!--Yes , No Feedback -->
+          <div style="margin-bottom: 30px">
+            <div>
+              Did you receive your product within the expected timeline?
+            </div>
+            <div style="margin-top: 20px; display: flex; gap: 20px">
+              <label class="chip-select-container">
+                <input
+                  type="radio"
+                  value="Yes"
+                  style="display: none"
+                  name="boolean-feedback"
+                />
+                <div class="chip-checkmark">Yes</div>
+              </label>
+              <label class="chip-select-container">
+                <input
+                  type="radio"
+                  value="No"
+                  style="display: none"
+                  name="boolean-feedback"
+                />
+                <div class="chip-checkmark">No</div>
+              </label>
+            </div>
+          </div>
+
+          <!--Number feedback -->
+          <div style="margin-bottom: 30px">
+            <div>
+              How likely would you recommend this to a friend or colleague ?
+            </div>
+            <div
+              style="
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+              "
+              class="nps-wrapper"
+            >
+              <label class="option">
+                <input
+                  type="radio"
+                  value="1"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>1</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="2"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>2</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="3"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>3</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="4"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>4</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="5"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>5</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="6"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>6</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="7"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>7</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="8"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>8</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="9"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>9</span>
+              </label>
+              <label class="option">
+                <input
+                  type="radio"
+                  value="10"
+                  style="display: none"
+                  name="number-feedback"
+                />
+                <span>10</span>
+              </label>
+            </div>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+            "
+          >
+            <p
+              class="button"
+              role="button"
+              tabindex="-1"
+              on="tap:AMP.setState({stepper: {step: 2}})"
+            >
+              Next
+            </p>
+          </div>
         </div>
-      </div>
-      
-      <!--Yes , No Feedback -->
-      <div style="margin-bottom:30px">
-        <div>Did you receive your product within the expected timeline?</div>
-        <div style="margin-top:20px; display:flex; gap:20px">
-          <label class="chip-select-container">
-            <input type="radio" value="Yes" style="display: none;" name="boolean-feedback"/>
-            <div class="chip-checkmark">Yes </div>
-          </label>
-           <label class="chip-select-container">
-            <input type="radio" value="No" style="display: none;" name="boolean-feedback"/>
-            <div class="chip-checkmark">No</div>
-          </label>
+
+        <!--Stepper 2 -->
+        <div class="step" [class]="stepper.step == 2 ? 'step active' : 'step'">
+          <div>Please let us know how we can improve your experience.</div>
+          <textarea
+            style="margin-top: 20px; margin-bottom: 30px"
+            class="input-style"
+          ></textarea>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+            "
+          >
+            <p
+              class="button"
+              role="button"
+              tabindex="-1"
+              on="tap:AMP.setState({stepper: {step: 3}})"
+            >
+              Submit Form
+            </p>
+          </div>
         </div>
-      </div>
-      
-      <!--Number feedback -->
-      <div style="margin-bottom:30px">
-        <div>How likely would you recommend this to a friend or colleague ?</div>
-        <div style="margin-top:20px; display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap" class="nps-wrapper">
-          <label class="option">
-            <input type="radio" value="1" style="display: none;" name="number-feedback"/>
-            <span>1</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="2" style="display: none;" name="number-feedback"/>
-            <span>2</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="3" style="display: none;" name="number-feedback"/>
-            <span>3</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="4" style="display: none;" name="number-feedback"/>
-            <span>4</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="5" style="display: none;" name="number-feedback"/>
-            <span>5</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="6" style="display: none;" name="number-feedback"/>
-            <span>6</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="7" style="display: none;" name="number-feedback"/>
-            <span>7</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="8" style="display: none;" name="number-feedback"/>
-            <span>8</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="9" style="display: none;" name="number-feedback"/>
-            <span>9</span>
-          </label>
-          <label class="option">
-            <input type="radio" value="10" style="display: none;" name="number-feedback"/>
-            <span>10</span>
-          </label>
-        </div>
-      </div>
-      
-      <div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%">
-      	<p style="text-align: center;color:white;background-color:black;border-radius:8px;width:20%;padding:15px 10px;cursor:pointer" role="button" tabIndex="-1" on="tap:AMP.setState({stepper: {step: 2}})">Next</p>
-      </div>
-      </div>
-      
-      <!--Stepper 2 -->
-      <div class="step" [class]="stepper.step == 2 ? 'step active' : 'step'">
-        <div>Please let us know how we can improve your experience.</div>
-        <textarea style="margin-top:20px;margin-bottom:30px" class="input-style"></textarea>
-        <div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%">
-      		<p style="text-align: center;color:white;background-color:black;border-radius:8px;width:20%;padding:15px 10px;cursor:pointer" role="button" tabIndex="-1" on="tap:AMP.setState({stepper: {step: 3}})">Submit Form</p>
-      	</div>
-      </div>
-        
-     <!--Stepper 3 -->
+
+        <!--Stepper 3 -->
         <div class="step" [class]="stepper.step == 3 ? 'step active' : 'step'">
-           <div style="text-align:center">Thank you for your valuable feedback 🙌🏻</div>
-       </div>
-        
-      
-      
-    </form>
-  </div>
-</body>
+          <div style="text-align: center">
+            Thank you for your valuable feedback 🙌🏻
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
