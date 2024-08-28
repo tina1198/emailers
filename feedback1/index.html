@@ -1,0 +1,105 @@
+<!--
+     Below is the mininum valid AMP4EMAIL document. Just type away
+     here and the AMP Validator will re-check your document on the fly.
+-->
+<!doctype html>
+<html ⚡4email data-css-strict>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+  <style amp-custom>
+    .step {
+        display: none;
+      }
+
+      .step.active {
+        display: block;
+      }
+    
+     .feedback{
+       display:none;
+    }
+    
+    .feedback.active{
+      display:block
+    }
+    .feedback-banner{
+      background:#fff url("https://non-prod-cdp-assets.rebid.co/1/email templates test/e53ad41d-0cd2-4538-ac2b-bff57f9363ad.png") center top/cover repeat;
+      background-position:center top;
+      background-repeat:repeat;
+      background-size:cover;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+    }
+    
+    .feedback-form{
+      background-color:#F2F2FD;
+      max-height:300px;
+      border-radius:8px; 
+      padding:30px
+    }
+    
+    @media only screen and (max-width: 400px) {
+        .feedback-form {
+          max-height:400px
+        }
+      }
+    
+    
+  </style>
+</head>
+<body>
+  <amp-state id="stepper">
+     <script type="application/json">
+        { "step": 1 }
+      </script>
+  </amp-state>
+  <amp-state id="options">
+     <script type="application/json">
+        { "up": false, "down":false }
+      </script>
+  </amp-state>
+  <div class="feedback-banner">
+   <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/febd323e-f2d2-42c0-b1d6-03bcf3d94752.gif" layout="fixed" width="200" height="200"></amp-img>
+    <div style="font-family:Helvetica;font-size:36px;font-weight:bold;margin-bottom:30px">How's your experience with Us?</div>
+  </div>
+  <div style="padding:20px" class="step active" [class]="stepper.step == 1 ? 'step active' : 'step'">
+    <div class="feedback-form">
+      <span style="font-weight:bold;font-family:Helvetica">We just wanted to check in with you to see how your experience is with the product so far.</span>
+      <div style="display:flex;justify-content:center;align-items:center;gap:30px;margin-top:20px;margin-bottom:30px;">
+        <label style="cursor:pointer">
+          <input type="radio" style="display:none" name="thumps-feedback" />
+          <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/22767003-ee4a-42c9-b5a2-5c5b6e86fe88.png" width="70" height="70" class="feedback active" [class]="options.up == false ? 'feedback active' : 'feedback'" on="tap:AMP.setState({options: {up: true,down:false}})" role="button" tabIndex="-1"></amp-img>
+          <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/1779532d-a4eb-4743-a5c4-66b19ed62731.png" width="70" height="70" class="feedback" [class]="options.up == true ? 'feedback active' : 'feedback'"></amp-img>
+        </label>
+        <label style="cursor:pointer">
+          <input type="radio" style="display:none" name="thumps-feedback"/>
+          <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/3c4b2466-bfa6-4ae5-b9f4-a82bc324c390.png" width="70" height="70" class="feedback active" [class]="options.down == false ? 'feedback active' : 'feedback'" on="tap:AMP.setState({options: {up: false,down:true}})" role="button" tabIndex="-1"></amp-img>
+          <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/b2f3032c-9e5c-4c47-8b8d-1532edbc140d.png" width="70" height="70" class="feedback" [class]="options.down == true ? 'feedback active' : 'feedback'"></amp-img>
+        </label>
+      </div>
+      <div>
+        <div class="feedback" [class]="options.down == true ? 'feedback active' : 'feedback'" style="margin-bottom:30px">
+          <p style="font-weight:bold;font-family:Helvetica;">Are you facing any issues? If yes, please let us know.</p>
+          <input type="text" placeholder="Type here" style="width:80%;height:25px;padding:5px 10px;border:1px solid #cbd5e1"/>
+        </div>
+        <div style="display:flex;justify-content:center;align-items:center;">
+          <button style="background-color:#5846c8;color:white;border:none;padding:15px 30px;border-radius:8px;cursor:pointer" on="tap:AMP.setState({stepper: {step: 2}})">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:20px" class="step" [class]="stepper.step == 2 ? 'step active' : 'step'">
+    <div class="feedback-form">
+      <p style="font-weight:bold;font-family:Helvetica;text-align:center">Thank you for sharing your experience.</p>
+      <div style="display:flex;justify-content:center;align-items:center;">
+          <button style="background-color:#5846c8;color:white;border:none;padding:15px 30px;border-radius:8px;cursor:pointer">Know More</button>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
