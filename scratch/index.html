@@ -16,6 +16,7 @@
       .container {
         padding: 30px;
         text-align: center;
+        background-image: url("https://non-prod-cdp-assets.rebid.co/1/753895e0-93e7-4179-b0b4-715a673767d3.jpeg");
       }
 
       .promo {
@@ -23,7 +24,9 @@
         position: relative;
         transform-style: preserve-3d;
         border: 1px solid #000;
-        border-radius: 10px;
+        border-radius: 100%;
+        width:50%;
+        height:50%;
         overflow: hidden;
         background-color: #fff;
       }
@@ -42,8 +45,8 @@
 
       .promo .scratch u {
         display: block;
-        width: 9%;
-        height: 9%;
+        width: 11%;
+        height: 11%;
         background: #7f8c8d;
         transform: rotate(-30deg) translateY(-5px) scale(1.7);
         transition: transform 0s;
@@ -51,49 +54,7 @@
         opacity: 0.99;
       }
 
-      /* Animation */
-      .promo.auto .scratch u:nth-of-type(1n) {
-        transition-delay: 2.25s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(10n -11) {
-        transition-delay: 0s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(10n -8) {
-        transition-delay: 0.25s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(10n -10) {
-        transition-delay: 0.5s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(12n -9) {
-        transition-delay: 0.75s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(12n -12) {
-        transition-delay: 1s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(12n -7) {
-        transition-delay: 1.25s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(13n -13) {
-        transition-delay: 1.5s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(13n -6) {
-        transition-delay: 1.75s;
-      }
-
-      .promo.auto .scratch u:nth-of-type(13n -14) {
-        transition-delay: 2s;
-      }
-
-      .promo .scratch u:hover,
-      .promo.auto .scratch u {
+      .promo .scratch u:hover {
         transform: scale(0);
         transition-delay: 0s;
       }
@@ -102,9 +63,7 @@
         color: #000;
         text-align: center;
         padding: 20px;
-      }
-      .promo .offer * {
-        text-align: center;
+        
       }
 
       .black-but {
@@ -112,7 +71,7 @@
         padding: 5px 10px;
         background: #000;
         color: #fff;
-        border-radius: 0px;
+        border-radius: 100%;
         font-size: 16px;
         margin: 20px auto 0;
         cursor: pointer;
@@ -162,6 +121,11 @@
                                       <tbody>
                                         <tr>
                                           <td
+                                            style="
+                                              display: flex;
+                                              align-items: center;
+                                              justify-content: center;
+                                            "
                                             class="esd-block-html es-p20 esdev-disable-select custom-bg-color"
                                           >
                                             <div class="container">
@@ -225,12 +189,6 @@
                                                   Try Scratch
                                                 </div>
                                               </div>
-                                              <button
-                                                class="black-but"
-                                                on="tap:AMP.setState({auto: true})"
-                                              >
-                                                Scratch
-                                              </button>
                                             </div>
                                           </td>
                                         </tr>

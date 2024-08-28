@@ -1,136 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡4email data-css-strict>
-<head>
-  <meta charset="utf-8">
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-  <style amp4email-boilerplate>body{visibility:hidden}</style>
-  <style amp-custom>
-    body {
-      font-family: "Helvetica";
-    }
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp4email-boilerplate>
+      body {
+        visibility: hidden;
+      }
+    </style>
+    <style amp-custom>
+      .main{
+        width:100%;
+        height:500px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-family: "Helvetica";
+      }
+      .container {
+        padding: 30px;
+        text-align: center;
+        background-image: url("https://non-prod-cdp-assets.rebid.co/1/email templates test/2f411708-f2ff-463e-9ddb-c4f9652b6e5a.png");
+        width:50%;
+        height:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center
+      }
 
-    .step {
-      display: none;
-    }
+      .promo {
+        margin: 0 auto;
+        position: relative;
+        transform-style: preserve-3d;
+        border: 1px solid #000;
+        border-radius: 50%;
+        width: 60%;
+        height: 60%;
+        overflow: hidden;
+        background-color: #2a2a2a;
+      }
 
-    .step.active {
-      display: block;
-    }
+      .promo .scratch {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        cursor: pointer;
+      }
 
-    .input-style {
-      color: #626265;
-      background-color: #fff;
-      font-family: Arial;
-      font-size: 16px;
-      width: 90%;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #c2cfe0;
-      border-radius: 6px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      padding-left: 10px;
-      padding-right: 10px;
-      line-height: 1.5;
-    }
+      .promo .scratch u {
+        display: block;
+        width: 20%;
+        height: 20%;
+        background: #8099a4;
+        transform: rotate(-30deg) translateY(-5px) scale(1.7);
+        transition: transform 0s;
+        transition-delay: 9999s;
+        opacity: 0.99;
+      }
 
-    .error {
-      font-size: 13px;
-      margin-top: 4px;
-      color: red;
-    }
+      .promo .scratch u:hover {
+        transform: scale(0);
+        transition-delay: 0s;
+      }
 
-    button {
-      border: none;
-      background-color: black;
-      color: white;
-      padding: 15px 20px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <amp-state id="stepper">
-    <script type="application/json">
-      { "step": 1 }
-    </script>
-  </amp-state>
+      .promo .offer {
+        color: white;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        background-color:#2a2a2a
+      }
 
-  <div style="margin:60px">
-    <p style="text-align:center;font-family:Arial,Helvetica,sans-serif;color:#444;font-size:36px;font-weight:bold;margin-bottom:20px">Refer and Earn</p>
-    <p style="text-align:center;font-family:Arial,Helvetica,sans-serif;">Hey there, fill the form below and share a few references with us and stand a chance to win huge discounts!</p>
-    <div style="display:flex;justify-content:center;align-items:center">
-      <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/57d1aa7e-10af-4a0f-b09a-e86f0205b863.png" width="300" height="300"></amp-img>
-    </div>
-  </div>
-
-  <div style="background-color:#7fd6c2;width:100%;padding:20px 24px 10px;color:white">
-    <!-- Stepper 1 -->
-    <form class="step active" [class]="stepper.step == 1 ? 'step active' : 'step'" method="post" action-xhr="https://example.com/submit-form">
-      <p style="font-family:Arial,Helvetica,sans-serif;font-size:36px;text-align:center;margin-top:10px">Referral Form</p>
-      <div>
-        <div><p>Full Name*</p></div>
-        <div>
-          <input id="fullname" class="input-style" required type="text" placeholder="Enter the name" pattern=".{1,200}">
-          <div visible-when-invalid="valueMissing" validation-for="fullname" class="error">This field is required</div>
-          <div visible-when-invalid="patternMismatch" validation-for="fullname" class="error">Allowed length of response is 1 - 200 characters</div>
+      .black-but {
+        border: 0;
+        background: black;
+        color: white;
+        border-radius: 50%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+    <div class="container">
+      <div class="promo">
+        <div class="scratch">
+          <u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u>
+          <u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u>
+          <u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u>
+          <u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u>
         </div>
-
-        <div><p>How do you know the referee?*</p></div>
-        <div>
-          <select class="input-style" id="referee-option" required name="referee-option">
-            <option value="" disabled selected>Choose Option</option>
-            <option value="Colleague">Colleague</option>
-            <option value="Friend">Friend</option>
-            <option value="Relative">Relative</option>
-          </select>
-          <div visible-when-invalid="valueMissing" validation-for="referee-option" class="error">This field is required</div>
+        <div class="offer">
+          <div style="margin-top:20px;">Up to</div>
+          <div style="margin-top:10px;font-size:40px">50%</div>
+          <div style="margin-top:10px;">off on bestsellers</div>
         </div>
-
-        <div><p>Date of Birth*</p></div>
-        <div>
-          <input class="input-style" id="date-of-birth" required type="date">
-          <div visible-when-invalid="valueMissing" validation-for="date-of-birth" class="error">This field is required</div>
-        </div>
-
-        <div style="margin-top:20px;text-align:center;">
-          <button type="submit" on="submit-success:AMP.setState({stepper: {step: 2}})">Next Step</button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Stepper 2 -->
-    <form class="step" [class]="stepper.step == 2 ? 'step active' : 'step'" method="post" action-xhr="https://example.com/submit-form">
-      <div><p>Phone Number*</p></div>
-      <div>
-        <input id="phone-number" class="input-style" required type="tel" placeholder="Enter the number" pattern="[0-9]{10}">
-        <div visible-when-invalid="valueMissing" validation-for="phone-number" class="error">This field is required</div>
-        <div visible-when-invalid="patternMismatch" validation-for="phone-number" class="error">Please enter a valid 10-digit phone number</div>
-      </div>
-
-      <div><p>Email*</p></div>
-      <div>
-        <input id="email" class="input-style" required type="email" placeholder="Enter the email">
-        <div visible-when-invalid="valueMissing" validation-for="email" class="error">This field is required</div>
-        <div visible-when-invalid="typeMismatch" validation-for="email" class="error">Please enter a valid email address</div>
-      </div>
-
-      <div style="margin-top:20px;text-align:center;">
-        <button type="submit" on="submit-success:AMP.setState({stepper: {step: 3}})">Submit</button>
-      </div>
-    </form>
-
-    <!-- Stepper 3 -->
-    <div class="step" [class]="stepper.step == 3 ? 'step active' : 'step'">
-      <p style="text-align:center">Thank you for filling the form!</p>
-      <div style="text-align:center;margin-top:20px;">
-        <button>Know More</button>
       </div>
     </div>
-  </div>
-</body>
+    </div>
+  </body>
 </html>
