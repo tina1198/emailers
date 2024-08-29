@@ -1,0 +1,324 @@
+<!--
+     Below is the mininum valid AMP4EMAIL document. Just type away
+     here and the AMP Validator will re-check your document on the fly.
+-->
+<!doctype html>
+<html ⚡4email data-css-strict>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+  <style amp-custom>
+    body{
+      font-family: "Helvetica"
+    }
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+    
+    .option-container{
+      display: flex;
+      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: Trebuchet MS;
+    }
+    
+    .option-container>div {
+    	padding: 8px 16px 8px 8px;
+    	background: #fff;
+    	box-shadow: 0 0 8px rgba(30, 41, 59, .16);
+    	border-radius: 8px;
+    	display: flex;
+    	width: 100%;
+    	cursor: pointer;
+    	line-height: 1.56;
+	}
+    
+    .option-container .unselected {
+    	display: flex;
+    	font-size: 16px;
+    	background: #f1f5f9;
+    	border-radius: 4px;
+    }
+    
+    .option-container .wh-32 {
+    	width: 32px;
+    	height: 32px;
+    	min-width: 32px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    }
+    
+    .option-container .hover {
+   	 	visibility: hidden;
+    	border-radius: 4px;
+        position:absolute;
+    }
+    
+    .option-container .inactive:hover .hover {
+    	min-width: unset;
+    	width: 1;
+    	position: absolute;
+      	visibility: visible;
+        background: #D0F0C0;
+    }
+    
+    .option-container .text {
+    	display: flex;
+    	align-items: center;
+    	padding: 0 16px;
+	}
+    
+    
+   .option-container .active {
+    outline: 1px solid #52b788;
+    
+    }
+    
+   	.option-container .active.incorrect {
+    outline: 1px solid #b84930;
+	}
+    
+    .option-container .selected {
+    display: none;
+    border-radius: 4px;
+    background: #52b788;
+    }
+    
+    .option-container .active.disabled {
+    	background: #f1f5f9;
+    	outline: 1px solid #e2e8f0;
+    	color: #64748b;
+    }
+    
+    .option-container .active.correct .unselected,  .option-container .active.incorrect .unselected {
+    	display: none;
+	}
+    
+    .option-container .active .hover,  .option-container .active.correct .unselected,  .option-container .active.incorrect .unselected {
+    	display: none;
+	}
+    
+    .option-container .active.correct .selected,  .option-container .active.incorrect .selected {
+    	display: flex;
+	}
+    
+    .option-container .incorrect .selected {
+    	background: #b84930;
+	}
+  </style>
+</head>
+<body>
+  <amp-state id="stepper">
+    <script type="application/json">
+      { "step": 1, "score": 0, "scoreArr" : [] }
+    </script>
+  </amp-state>
+  <amp-state id="quiz">
+    <script type="application/json">
+      { "answer1": null,"answer2": null, "answer3": null, "answer4": null}
+    </script>
+  </amp-state>
+  
+  
+  <p style="font-size:36px;font-weight:bold;text-align:center">It's QUIZ time 😎</p>
+  
+  <!-- Stepper 1-->
+  <div style="margin-top:40px" class="step active" [class]="stepper.step == 1 ? 'step active' : 'step'">
+    <div style="background-color:#EDEFF3;padding:4%">
+      <div style="background-color:white;border-radius:8px;padding:5% 8%">
+        <p style="color:#3a4a69;font-size:28px;font-weight:bold;padding-bottom:4px">Play and win a one-month free membership</p>
+        <ul style="padding:12px">
+          <li>The quiz contains 4 questions that will test your email deliverability knowledge.</li>
+          <li>Choose the right option and submit once you're done.</li>
+          <li>To qualify, you need a score of 3 or above.</li>
+        </ul>
+        <p style="font-size:16px;font-weight:bold;padding-bottom:24px">AMP up your brains and get started 👇🏼</p>
+        <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/9e900130-c83a-44ae-879f-11ba97f64511.gif" width="550" height="300" ></amp-img>
+        <div style="margin-top:24px; display:flex;justify-content:center;align-items:center">
+        <button style="border:none;font-size:16px;color:#f8fafc;background:#3a4a69;padding:8px 24px;cursor:pointer" on="tap:AMP.setState({stepper: {step: 2}})">Start the quiz</button>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+  
+  <!--Stepper 2-->
+  <div class="step" [class]="stepper.step == 2 ? 'step active' : 'step'" style="background-color:#EDEFF3;padding:4%">
+    <div style="background-color:white;border-radius:8px;padding:5% 8%">
+      <p style="text-align:center;font-size:12px;font-family:Trebuchet MS;padding-bottom:2px">Question 1/4</p>
+      <p style="line-height:18.72px;font-size:18px">Which of these is not an email authentication protocol?</p>
+      <div class="option-container">
+        <div class="inactive disabled" [class]="(quiz.answer1 ? 'active ' : 'inactive ') + 
+                (quiz.answer1 == 'SPF' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz : {answer1: quiz.answer1 || 'SPF'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">A</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">SPF</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer1 ? 'active ' : 'inactive ') + 
+                (quiz.answer1 == 'DMARC' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer1: quiz.answer1 || 'DMARC'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">B</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+          		<div class="text">DMARC</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer1 ? 'active ' : 'inactive ') + 
+                (quiz.answer1 == 'SMTP' ? 'correct' : 'correct')" on="tap:AMP.setState({quiz :{answer1: quiz.answer1 || 'SMTP'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">C</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/0df22026-894b-4811-bdf6-704bfc663242.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">SMTP</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer1 ? 'active ' : 'inactive ') + 
+                (quiz.answer1 == 'DKIM' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer1: quiz.answer1 || 'DKIM'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">D</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">DKIM</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; display:flex;justify-content:center;align-items:center">
+        <button style="border:none;font-size:16px;color:#f8fafc;background:#3a4a69;padding:10px 24px;cursor:pointer;border-radius:8px" on="tap:AMP.setState({stepper: {step: 3, score:  quiz.answer1 == 'SMTP' ? stepper.score+1 : stepper.score}})">Next</button>
+        </div>
+    </div>
+  </div>
+  
+  <!--Stepper 3 -->
+  <div class="step" [class]="stepper.step == 3 ? 'step active' : 'step'" style="background-color:#EDEFF3;padding:4%">
+    <div style="background-color:white;border-radius:8px;padding:5% 8%">
+      <p style="text-align:center;font-size:12px;font-family:Trebuchet MS;padding-bottom:2px">Question 2/4</p>
+      <p style="line-height:18.72px;font-size:18px">Deliverability is the total number of emails delivered divided by the number of emails sent.</p>
+      <div class="option-container">
+        <div class="inactive disabled" [class]="(quiz.answer2  ? 'active ' : 'inactive ') + 
+                (quiz.answer2 == 'Yes' ? 'correct' : 'correct')" on="tap:AMP.setState({quiz :{answer2: quiz.answer2 || 'Yes'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">A</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/0df22026-894b-4811-bdf6-704bfc663242.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Yes</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer2 ? 'active ' : 'inactive ') + 
+                (quiz.answer2 == 'No' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer2: quiz.answer2 || 'No'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">B</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">No</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; display:flex;justify-content:center;align-items:center;gap:12px">
+        <button style="border:none;font-size:16px;color:black;background:white;padding:10px 24px;border:1px solid #3a4a69;cursor:pointer;border-radius:8px" on="tap:AMP.setState({stepper: {step: 2}})">Previous</button>
+        <button style="border:none;font-size:16px;color:#f8fafc;background:#3a4a69;padding:10px 24px;cursor:pointer;border-radius:8px" on="tap:AMP.setState({stepper: {step: 4, score:  quiz.answer2 == 'Yes' ? stepper.score+1 : stepper.score}})">Next</button>
+        </div>
+    </div>
+  </div>
+  
+  <!--Stepper 4 -->
+  <div class="step" [class]="stepper.step == 4 ? 'step active' : 'step'" style="background-color:#EDEFF3;padding:4%">
+    <div style="background-color:white;border-radius:8px;padding:5% 8%">
+      <p style="text-align:center;font-size:12px;font-family:Trebuchet MS;padding-bottom:2px">Question 3/4</p>
+      <p style="line-height:18.72px;font-size:18px">Which of these factors is not a reason for lower deliverability?</p>
+      <div class="option-container">
+        <div class="inactive disabled" [class]="(quiz.answer3 ? 'active ' : 'inactive ') + 
+                (quiz.answer3 == 'IP address' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer3: quiz.answer3 || 'IP address'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">A</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">IP address</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer3 ? 'active ' : 'inactive ') + 
+                (quiz.answer3 == 'Subscriber`s behavior' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer3: quiz.answer3 || 'Subscriber`s behavior'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">B</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Subscriber's behavior</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer3  ? 'active ' : 'inactive ') + 
+                (quiz.answer3 == 'Email design' ? 'correct' : 'correct')" on="tap:AMP.setState({quiz :{answer3: quiz.answer3 || 'Email design'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">C</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/0df22026-894b-4811-bdf6-704bfc663242.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Email design</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer3 ? 'active ' : 'inactive ') + 
+                (quiz.answer3 == 'Spam words in subject line' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer3: quiz.answer3 || 'Spam words in subject line'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">D</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Spam words in subject line</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; display:flex;justify-content:center;align-items:center;gap:12px">
+        <button style="border:none;font-size:16px;color:black;background:white;padding:10px 24px;border:1px solid #3a4a69;cursor:pointer;border-radius:8px" on="tap:AMP.setState({stepper: {step: 3}})">Previous</button>
+        <button style="border:none;font-size:16px;color:#f8fafc;background:#3a4a69;padding:10px 24px;cursor:pointer;border-radius:8px" on="tap:AMP.setState({stepper: {step: 5, score:  quiz.answer3 == 'Email design' ? stepper.score+1 : stepper.score}})">Next</button>
+        </div>
+    </div>
+  </div>
+  
+   <!--Stepper 5 -->
+  <div class="step" [class]="stepper.step == 5 ? 'step active' : 'step'" style="background-color:#EDEFF3;padding:4%">
+    <div style="background-color:white;border-radius:8px;padding:5% 8%">
+      <p style="text-align:center;font-size:12px;font-family:Trebuchet MS;padding-bottom:2px">Question 4/4</p>
+      <p style="line-height:18.72px;font-size:18px">Which of these isn't an email deliverability best practice?</p>
+      <div class="option-container">
+        <div class="inactive disabled" [class]="(quiz.answer4  ? 'active ' : 'inactive ') + 
+                (quiz.answer4 == 'Use a purchased email list' ? 'correct' : 'correct')" on="tap:AMP.setState({quiz :{answer4:quiz.answer4 || 'Use a purchased email list'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">A</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/0df22026-894b-4811-bdf6-704bfc663242.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Use a purchased email list</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer4 ? 'active ' : 'inactive ') + 
+                (quiz.answer4 == 'Use double opt-in' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer4:quiz.answer4 || 'Use double opt-in'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">B</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Use double opt-in</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer4 ? 'active ' : 'inactive ') + 
+                (quiz.answer4 == 'Maintain email list hygiene' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer4: quiz.answer4 || 'Maintain email list hygiene'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">C</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Maintain email list hygiene</div>
+        </div>
+        <div class="inactive disabled" [class]="(quiz.answer4 ? 'active ' : 'inactive ') + 
+                (quiz.answer4 == 'Avoid email blasts' ? 'incorrect' : 'disabled')" on="tap:AMP.setState({quiz :{answer4: quiz.answer4 || 'Avoid email blasts'}})" tabindex="0" role="button">
+                <div class="unselected wh-32">D</div>
+                <div class="hover wh-32"><amp-img layout="responsive" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/178b2d34-7062-4dc7-8672-6114cb7b35fb.png" width="1" height="1" style="width: 20px;"></amp-img></div>
+                <div class="selected wh-32"><amp-img layout="fixed" src="https://non-prod-cdp-assets.rebid.co/1/email templates test/99aa0c09-eb64-4764-8823-e1740baa30f0.png" width="20" height="20" style="width: 20px; height: 20px;"></amp-img></div>
+                <div class="text">Avoid email blasts</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; display:flex;justify-content:center;align-items:center;gap:12px">
+        <button style="border:none;font-size:16px;color:black;background:white;padding:10px 24px;border:1px solid #3a4a69;cursor:pointer;border-radius:8px" on="tap:AMP.setState({stepper: {step: 4}})">Previous</button>
+        <button style="border:none;font-size:16px;color:#f8fafc;background:#3a4a69;padding:10px 24px;cursor:pointer;border-radius:8px" on="tap:AMP.setState({stepper: {step: 6, score:  quiz.answer4 == 'Use a purchased email list' ? stepper.score+1 : stepper.score}})">Finish Quiz</button>
+        </div>
+    </div>
+  </div>
+  
+  <!--Stepper 6 -->
+  <div class="step" [class]="stepper.step == 6 ? 'step active' : 'step'" style="background-color:#EDEFF3;padding:4%">
+    <div style="background-color:white;border-radius:8px;padding:5% 8%;display:flex;align-items:center;justify-content:center;flex-direction:column">
+        <p style="text-align:center;font-size:32px;padding-bottom:4px">
+            You Scored <span [text]="stepper.score"></span> Point
+        </p>
+        <p style="text-align:center;color:#64748b;font-size:14px;">
+            <span [text]="stepper.score"></span> correct,
+            <span [text]="4 - stepper.score"></span> wrong
+        </p>
+        <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email%20templates%20test/0e120712-ceae-4446-9b7e-f5d18f5f75cb.gif" width="300" height="300"></amp-img>
+        <p style="font-weight:bold;font-size:20px;margin-bottom:2px">Thanks for taking the quiz!</p>
+        <p style="margin:2px;color:#3a4a69">We will contact you soon after assessing the quiz result</p>
+    </div>
+</div>
+
+  
+</body>
+</html>
