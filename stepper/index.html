@@ -9,47 +9,14 @@
   <style amp-custom>
     body {
       font-family: "Helvetica";
+      margin: 0;
+      padding: 0;
     }
-
     .step {
       display: none;
     }
-
     .step.active {
       display: block;
-    }
-
-    .input-style {
-      color: #626265;
-      background-color: #fff;
-      font-family: Arial;
-      font-size: 16px;
-      width: 90%;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #c2cfe0;
-      border-radius: 6px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      padding-left: 10px;
-      padding-right: 10px;
-      line-height: 1.5;
-    }
-
-    .error {
-      font-size: 13px;
-      margin-top: 4px;
-      color: red;
-    }
-
-    button {
-      border: none;
-      background-color: black;
-      color: white;
-      padding: 15px 20px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -60,67 +27,67 @@
     </script>
   </amp-state>
 
-  <div style="margin:60px">
-    <p style="text-align:center;font-family:Arial,Helvetica,sans-serif;color:#444;font-size:36px;font-weight:bold;margin-bottom:20px">Refer and Earn</p>
-    <p style="text-align:center;font-family:Arial,Helvetica,sans-serif;">Hey there, fill the form below and share a few references with us and stand a chance to win huge discounts!</p>
-    <div style="display:flex;justify-content:center;align-items:center">
+  <div class="form-container" style="margin: 60px; background-color: white; padding: 20px; text-align: center;">
+    <p class="header-text" style="font-family: Arial, Helvetica, sans-serif; color: #444; font-size: 36px; font-weight: bold; margin-bottom: 20px;">Refer and Earn</p>
+    <p class="subheader-text" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; margin-bottom: 20px;">Hey there, fill the form below and share a few references with us and stand a chance to win huge discounts!</p>
+    <div class="image-container" style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
       <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/57d1aa7e-10af-4a0f-b09a-e86f0205b863.png" width="300" height="300"></amp-img>
     </div>
   </div>
 
-  <div style="background-color:#7fd6c2;width:100%;padding:20px 24px 10px;color:white">
+  <div class="content-wrapper" style="background-color: #7fd6c2; padding: 20px; color: white;">
     <!-- Stepper 1 -->
-    <form class="step active" [class]="stepper.step == 1 ? 'step active' : 'step'" method="post" action-xhr="https://example.com/submit-form">
-      <p style="font-family:Arial,Helvetica,sans-serif;font-size:36px;text-align:center;margin-top:10px">Referral Form</p>
+    <form class="step active" [class]="stepper.step == 1 ? 'step active' : 'step'" novalidate>
+      <p class="step-title" style="font-family: Arial, Helvetica, sans-serif; font-size: 36px; margin-bottom: 20px;">Referral Form</p>
       <div>
         <div><p>Full Name*</p></div>
         <div>
-          <input id="fullname" class="input-style" required type="text" placeholder="Enter the name" pattern=".{1,200}">
-          <div visible-when-invalid="valueMissing" validation-for="fullname" class="error">This field is required</div>
-          <div visible-when-invalid="patternMismatch" validation-for="fullname" class="error">Allowed length of response is 1 - 200 characters</div>
+          <input id="fullname" class="input-style" style="color: #000; background-color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; width: 100%; border-width: 1px; border-style: solid; border-color: #c2cfe0; border-radius: 6px; padding: 12px 10px; line-height: 1.5; margin-bottom: 20px; box-sizing: border-box;" required type="text" placeholder="Enter the name" pattern=".{1,200}">
+          <div visible-when-invalid="valueMissing" validation-for="fullname" class="error" style="font-size: 13px; margin-top: 4px; color: red;">This field is required</div>
+          <div visible-when-invalid="patternMismatch" validation-for="fullname" class="error" style="font-size: 13px; margin-top: 4px; color: red;">Allowed length of response is 1 - 200 characters</div>
         </div>
 
         <div><p>How do you know the referee?*</p></div>
         <div>
-          <select class="input-style" id="referee-option" required name="referee-option">
+          <select class="input-style" style="color: #000; background-color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; width: 100%; border-width: 1px; border-style: solid; border-color: #c2cfe0; border-radius: 6px; padding: 12px 10px; line-height: 1.5; margin-bottom: 20px; box-sizing: border-box;" id="referee-option" required name="referee-option">
             <option value="" disabled selected>Choose Option</option>
             <option value="Colleague">Colleague</option>
             <option value="Friend">Friend</option>
             <option value="Relative">Relative</option>
           </select>
-          <div visible-when-invalid="valueMissing" validation-for="referee-option" class="error">This field is required</div>
+          <div visible-when-invalid="valueMissing" validation-for="referee-option" class="error" style="font-size: 13px; margin-top: 4px; color: red;">This field is required</div>
         </div>
 
         <div><p>Date of Birth*</p></div>
         <div>
-          <input class="input-style" id="date-of-birth" required type="date">
-          <div visible-when-invalid="valueMissing" validation-for="date-of-birth" class="error">This field is required</div>
+          <input class="input-style" style="color: #000; background-color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; width: 100%; border-width: 1px; border-style: solid; border-color: #c2cfe0; border-radius: 6px; padding: 12px 10px; line-height: 1.5; margin-bottom: 20px; box-sizing: border-box;" id="date-of-birth" required type="date">
+          <div visible-when-invalid="valueMissing" validation-for="date-of-birth" class="error" style="font-size: 13px; margin-top: 4px; color: red;">This field is required</div>
         </div>
 
         <div style="margin-top:20px;text-align:center;">
-          <button type="submit" on="submit-success:AMP.setState({stepper: {step: 2}})">Next Step</button>
+          <button type="button" on="tap:AMP.setState({stepper: {step: 2}})" style="border: none; background-color: black; color: white; padding: 15px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; width: 100%; box-sizing: border-box;">Next Step</button>
         </div>
       </div>
     </form>
 
     <!-- Stepper 2 -->
-    <form class="step" [class]="stepper.step == 2 ? 'step active' : 'step'" method="post" action-xhr="https://example.com/submit-form">
+    <form class="step" [class]="stepper.step == 2 ? 'step active' : 'step'" novalidate>
       <div><p>Phone Number*</p></div>
       <div>
-        <input id="phone-number" class="input-style" required type="tel" placeholder="Enter the number" pattern="[0-9]{10}">
-        <div visible-when-invalid="valueMissing" validation-for="phone-number" class="error">This field is required</div>
-        <div visible-when-invalid="patternMismatch" validation-for="phone-number" class="error">Please enter a valid 10-digit phone number</div>
+        <input id="phone-number" class="input-style" style="color: #000; background-color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; width: 100%; border-width: 1px; border-style: solid; border-color: #c2cfe0; border-radius: 6px; padding: 12px 10px; line-height: 1.5; margin-bottom: 20px; box-sizing: border-box;" required type="tel" placeholder="Enter the number" pattern="[0-9]{10}">
+        <div visible-when-invalid="valueMissing" validation-for="phone-number" class="error" style="font-size: 13px; margin-top: 4px; color: red;">This field is required</div>
+        <div visible-when-invalid="patternMismatch" validation-for="phone-number" class="error" style="font-size: 13px; margin-top: 4px; color: red;">Please enter a valid 10-digit phone number</div>
       </div>
 
       <div><p>Email*</p></div>
       <div>
-        <input id="email" class="input-style" required type="email" placeholder="Enter the email">
-        <div visible-when-invalid="valueMissing" validation-for="email" class="error">This field is required</div>
-        <div visible-when-invalid="typeMismatch" validation-for="email" class="error">Please enter a valid email address</div>
+        <input id="email" class="input-style" style="color: #000; background-color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; width: 100%; border-width: 1px; border-style: solid; border-color: #c2cfe0; border-radius: 6px; padding: 12px 10px; line-height: 1.5; margin-bottom: 20px; box-sizing: border-box;" required type="email" placeholder="Enter the email">
+        <div visible-when-invalid="valueMissing" validation-for="email" class="error" style="font-size: 13px; margin-top: 4px; color: red;">This field is required</div>
+        <div visible-when-invalid="typeMismatch" validation-for="email" class="error" style="font-size: 13px; margin-top: 4px; color: red;">Please enter a valid email address</div>
       </div>
 
       <div style="margin-top:20px;text-align:center;">
-        <button type="submit" on="submit-success:AMP.setState({stepper: {step: 3}})">Submit</button>
+        <button type="button" on="tap:AMP.setState({stepper: {step: 3}})" style="border: none; background-color: black; color: white; padding: 15px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; width: 100%; box-sizing: border-box;">Submit</button>
       </div>
     </form>
 
@@ -128,7 +95,7 @@
     <div class="step" [class]="stepper.step == 3 ? 'step active' : 'step'">
       <p style="text-align:center">Thank you for filling the form!</p>
       <div style="text-align:center;margin-top:20px;">
-        <button>Know More</button>
+        <button type="button" style="border: none; background-color: black; color: white; padding: 15px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; width: 100%; box-sizing: border-box;">Know More</button>
       </div>
     </div>
   </div>

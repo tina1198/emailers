@@ -1,7 +1,3 @@
-<!--
-     Below is the mininum valid AMP4EMAIL document. Just type away
-     here and the AMP Validator will re-check your document on the fly.
--->
 <!doctype html>
 <html ⚡4email data-css-strict>
 <head>
@@ -12,48 +8,167 @@
     body {
       font-family: "Helvetica";
     }
-    
+
+    /* Desktop Styles */
+    .header {
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+    }
+
+    .header img {
+      width: 200px;
+      height: 50px;
+    }
+
+    .nav-items {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: white;
+      gap: 10px;
+      width: 70%;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-items span {
+      cursor: pointer;
+    }
+
+    .main-content {
+      background-color: #990001;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .headline {
+      color: white;
+      font-size: 50px;
+      margin: 2px;
+      letter-spacing: 5px;
+      font-weight: bold;
+    }
+
+    .countdown {
+      width: 300px;
+      height: 100px;
+    }
+
+    .subheadline {
+      color: white;
+      font-size: 50px;
+      letter-spacing: 4px;
+      margin: 2px;
+    }
+
+    .offer-details {
+      color: white;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .button {
+      margin: 20px 0px 30px;
+      padding: 10px 20px;
+      border: none;
+      background-color: white;
+      font-size: 16px;
+      color: #990001;
+      cursor: pointer;
+    }
+
+    .footer {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* Mobile Styles */
+    @media only screen and (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-items {
+        justify-content: center;
+        width: 100%;
+        font-size: 10px;
+        gap: 5px;
+      }
+
+      .headline {
+        font-size: 32px;
+      }
+
+      .countdown {
+        width: 200px;
+        height: 66px;
+      }
+
+      .subheadline {
+        font-size: 32px;
+      }
+
+      .offer-details {
+        font-size: 16px;
+      }
+
+      .button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .footer {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
   <!--Header -->
-  <div style="background-color:black;display:flex;align-items:center;padding:5px">
+  <div class="header">
      <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/1ca80e93-4d76-40a7-8c4b-b2008d62f425.png" width="200" height="50"></amp-img>
-     <div style="display:flex;align-items:center;justify-content:end;color:white;gap:10px;width:70%;font-size:12px">
-       <span style="cursor:pointer">SHOES</span>
-       <span style="cursor:pointer">BELTS</span>
-       <span style="cursor:pointer">ACCESSORIES</span>
-       <span style="cursor:pointer">CLOTHING</span>
-       <span style="cursor:pointer">CLEARANCE</span>
+     <div class="nav-items">
+       <span>SHOES</span>
+       <span>BELTS</span>
+       <span>ACCESSORIES</span>
+       <span>CLOTHING</span>
+       <span>CLEARANCE</span>
     </div>
   </div>
   
   <!-- Body-->
-  <div style="background-color:#990001;padding:20px;display:flex;align-items:center;justify-content:center;flex-direction:column">
+  <div class="main-content">
     <p style="color:white;font-size:12px;margin:0px">REDISCOVER AMERICA SALE</p>
     
-    <p style="color:white;font-size:50px;margin:2px;letter-spacing: 5px;font-weight:bold">FINAL HOURS...</p>
+    <p class="headline">FINAL HOURS...</p>
     
-    <amp-img src="https://gen.sendtric.com/countdown/p0n036klcy" width="300" height="100"></amp-img>
+    <amp-img class="countdown" src="https://gen.sendtric.com/countdown/p0n036klcy" width="300" height="100"></amp-img>
     
-      <div style="color:white;margin-top:20px;font-size:20px">★ ★ ★ ★ ★</div>
+    <div style="color:white;margin-top:20px;font-size:20px">★ ★ ★ ★ ★</div>
     
-      <span style="color:white;font-size:50px;letter-spacing: 4px;margin:2px">SAVE 15-35%</span>
-      <span style="color:white;font-size:20px;">ON ALL SHOES & BELTS</span>
+    <span class="subheadline">SAVE 15-35%</span>
+    <span class="offer-details">ON ALL SHOES & BELTS</span>
     
-     <button style="margin: 20px 0px 30px;padding:10px 20px;border:none;background-color:white;font-size:16px;color:#990001;cursor:pointer">SHOP NOW</button>
+    <button class="button">SHOP NOW</button>
       
-     <span style="color:white;margin-bottom:20px">ENDS OCTOBER 21 ONLINE & IN STORES</span>
-     <span style="color:white;font-size:14px">Shop Allen Edmonds Retail Stores and AllenEdmons.com .Offer valid 10/08/24-14/08/24.</span>
-     <span style="color:white;font-size:14px">Savings vary by style.Savings of 15-35% applies on Allen Edmons branded products.</span>	
-    </div>
-  
+    <span style="color:white;margin-bottom:20px">ENDS OCTOBER 21 ONLINE & IN STORES</span>
+    <span class="footer">Shop Allen Edmonds Retail Stores and AllenEdmons.com. Offer valid 10/08/24-14/08/24.</span>
+    <span class="footer">Savings vary by style. Savings of 15-35% applies on Allen Edmonds branded products.</span>	
   </div>
   
   <div>
-    <p style="margin:0;text-align:center;padding:5px;color:#8d2950">FREE Ground Shipping & Returns on ALL domestic  US orders.</p>
+    <p style="margin:0;text-align:center;padding:5px;color:#8d2950">FREE Ground Shipping & Returns on ALL domestic US orders.</p>
   </div>
   
-  <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/471c4abb-9e13-4e4f-a9e6-e95ae244752d.png" width="700" height="100"></amp-img>
+  <amp-img src="https://non-prod-cdp-assets.rebid.co/1/email templates test/471c4abb-9e13-4e4f-a9e6-e95ae244752d.png" width="700" height="100" layout="responsive"></amp-img>
 </body>
 </html>
